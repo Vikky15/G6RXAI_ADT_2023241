@@ -7,6 +7,7 @@ namespace G6RXAI_ADT_2023241.Client
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            int x;
         }
     }
 }
