@@ -1,4 +1,5 @@
-﻿using System;
+﻿using G6RXAI_ADT_2023241.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,13 @@ using System.Threading.Tasks;
 
 namespace G6RXAI_ADT_2023241.Repository
 {
-    internal interface IDoctorRepository
+    public interface IDoctorRepository
     {
+
+        void CreateDoctor(Doctor doctor);
+        Doctor GetDoctorId(int id);
+        IEnumerable<Doctor> GetAllDoctors();
+        void UpdatePatient(Doctor doctor);
+        void DeleteDoctor(int id);
     }
 }
