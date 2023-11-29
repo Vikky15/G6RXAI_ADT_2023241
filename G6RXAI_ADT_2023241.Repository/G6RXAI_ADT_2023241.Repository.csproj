@@ -14,5 +14,5 @@
   <ItemGroup>
     <ProjectReference Include="..\G6RXAI_ADT_2023241.Models\G6RXAI_ADT_2023241.Models.csproj" />
   </ItemGroup>
-
+	dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 </Project>
