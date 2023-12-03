@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace G6RXAI_ADT_2023241.Logic
 {
-public class AppointmentLogic
+    public class AppointmentLogic
     {
         private readonly IAppointmentRepository _appointmentRepository;
 
@@ -22,7 +22,7 @@ public class AppointmentLogic
         {
 
             _appointmentRepository.CreateAppointment(appointment);
-            CheckAppointment(appointment);
+            CheckAppointmentParameter(appointment);
         }
 
         public Appointment GetPatientById(int id)
@@ -41,7 +41,7 @@ public class AppointmentLogic
 
         public void UpdateAppointment(Appointment appointment)
         {
-            CheckAppointment(appointment);
+            CheckAppointmentParameter(appointment);
             if (appointment.AppointmentId <= 1000)
             {
                 throw new ArgumentException("This is a wrong patient ID.");
@@ -58,6 +58,15 @@ public class AppointmentLogic
             _appointmentRepository.DeleteAppointment(id);
         }
 
+        private void CheckAppointmentParameter(Appointment appointment)
+        {
+            if (appointment == null)
+            {
+                throw new ArgumentNullException(nameof(appointment), "CarBrand cannot be null.");
+            }
+
+
+        }
 
 
     }
