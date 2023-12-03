@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace G6RXAI_ADT_2023241.Repository
 {
-    internal class DoctorRepository : IDoctorRepository
+ public class DoctorRepository : IDoctorRepository
     {
         private readonly HospitalAppointmentDbContext Content;
         public DoctorRepository(HospitalAppointmentDbContext content )
@@ -23,7 +23,13 @@ namespace G6RXAI_ADT_2023241.Repository
 
         public void DeleteDoctor(int id)
         {
-            throw new NotImplementedException();
+
+            var doctors = Content.Doctors.Find(id);
+            if (doctors != null)
+            {
+               Content.Doctors.Remove(doctors);
+               Content.SaveChanges();
+            }
         }
 
         public IEnumerable<Doctor> GetAllDoctors()
@@ -33,10 +39,10 @@ namespace G6RXAI_ADT_2023241.Repository
 
         public Doctor GetDoctorId(int id)
         {
-            throw new NotImplementedException();
+            return Content.Doctors.Find(id);
         }
 
-        public void UpdatePatient(Doctor doctor)
+        public void UpdateDoctor(Doctor doctor)
         {
 
             Content.Doctors.Update(doctor);

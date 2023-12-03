@@ -14,7 +14,8 @@ namespace G6RXAI_ADT_2023241.Models
 
         [Required]
         public string Specialization { get; set; }
-
+        public ICollection<Appointment> Appointments { get; set; }
+        public ICollection<Patient> Patients { get; set; }
         public virtual Appointment Appointment { get; set; }
     }
 

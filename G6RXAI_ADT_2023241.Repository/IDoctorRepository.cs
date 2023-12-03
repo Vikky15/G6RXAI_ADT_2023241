@@ -13,7 +13,7 @@ namespace G6RXAI_ADT_2023241.Repository
         void CreateDoctor(Doctor doctor);
         Doctor GetDoctorId(int id);
         IEnumerable<Doctor> GetAllDoctors();
-        void UpdatePatient(Doctor doctor);
+        void UpdateDoctor(Doctor doctor);
         void DeleteDoctor(int id);
     }
 }

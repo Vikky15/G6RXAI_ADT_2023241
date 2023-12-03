@@ -18,7 +18,8 @@ namespace G6RXAI_ADT_2023241.Models
         [Required]
         public DateTime BirthDate { get; set; }
         public int DoctorId { get; set; }
-        public virtual  Appointment Appointment { get; set; }
+        public ICollection   <Appointment> Appointments{ get; set; }
+        public virtual  Doctor Doctor { get; set; }
     }
 
 }
