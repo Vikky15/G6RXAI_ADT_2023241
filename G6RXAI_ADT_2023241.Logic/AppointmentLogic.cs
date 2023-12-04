@@ -62,10 +62,15 @@ namespace G6RXAI_ADT_2023241.Logic
         {
             if (appointment == null)
             {
-                throw new ArgumentNullException(nameof(appointment), "CarBrand cannot be null.");
+                throw new ArgumentNullException(nameof(appointment), "Appointment cannot be null");
             }
 
 
+        }
+        public class AppointmentWithDoctor
+        {
+            public Appointment actualAppointment { get; set; }
+            public Doctor actualDoctor { get; set; }
         }
 
 
