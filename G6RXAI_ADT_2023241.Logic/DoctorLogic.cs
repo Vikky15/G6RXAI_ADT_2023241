@@ -71,7 +71,7 @@ namespace G6RXAI_ADT_2023241.Logic
 
             if (string.IsNullOrWhiteSpace(doctor.Name))
             {
-                throw new ArgumentException("CarBrand name cannot be empty.", nameof(doctor));
+                throw new ArgumentException("Doctor's name cannot be empty.", nameof(doctor));
             }
 
         }

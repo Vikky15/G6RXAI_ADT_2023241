@@ -57,6 +57,19 @@ namespace G6RXAI_ADT_2023241.Logic
             }
             _patientRepository.DeletePatient(id);
         }
+        private void CheckPatient(Patient patient)
+        {
+            if (patient == null)
+            {
+                throw new ArgumentNullException(nameof(patient), "Patient's name cannot be null");
+            }
 
+            if (string.IsNullOrWhiteSpace(patient.Name))
+            {
+                throw new ArgumentException("Doctor's name cannot be empty.", nameof(patient));
+            }
+
+
+        }
     }
 }
