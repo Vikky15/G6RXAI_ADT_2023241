@@ -18,7 +18,7 @@ namespace G6RXAI_ADT_2023241.Logic
             _appointmentRepository = appointmentRepository;
         }
 
-        public void AddCarModel(Appointment appointment)
+        public void AddAppointment(Appointment appointment)
         {
 
             _appointmentRepository.CreateAppointment(appointment);
@@ -67,12 +67,7 @@ namespace G6RXAI_ADT_2023241.Logic
 
 
         }
-        public class AppointmentWithDoctor
-        {
-            public Appointment actualAppointment { get; set; }
-            public Doctor actualDoctor { get; set; }
-        }
-
-
+        
+       
     }
 }

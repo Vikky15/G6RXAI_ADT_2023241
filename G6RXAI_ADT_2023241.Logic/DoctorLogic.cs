@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static G6RXAI_ADT_2023241.Logic.AppointmentLogic;
 
 namespace G6RXAI_ADT_2023241.Logic
 {
@@ -75,11 +76,24 @@ namespace G6RXAI_ADT_2023241.Logic
             }
 
         }
+        public class AppointmentWithDoctor
+        {
+            public int  numAppointment  { get; set; }
+            public Doctor actualDoctor { get; set; }
+        }
+        public IEnumerable<AppointmentWithDoctor> GetAppointmentAndDoctor()
+        {
+
+            return _doctorRepository.GetAllDoctors().Select(doctor => new AppointmentWithDoctor
+            {
+                actualDoctor = doctor,
+                numAppointment= doctor.Appointments.Count
+            });
+        }
 
 
 
-
-        //// Method to retrieve car brands by a specific name pattern
+        //// Method to retrieve car brands by a specific name pattern   
         //public IEnumerable<CarBrand> GetCarBrandsByName(string namePattern)
         //{
         //    if (string.IsNullOrWhiteSpace(namePattern))

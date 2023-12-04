@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static G6RXAI_ADT_2023241.Logic.PatientLogic;
 
 namespace G6RXAI_ADT_2023241.Logic
 {
@@ -57,6 +58,37 @@ namespace G6RXAI_ADT_2023241.Logic
             }
             _patientRepository.DeletePatient(id);
         }
+        //my Non crud method
+       
+        public class AppointmentLook
+        {
+            public Patient Patient { get; set; }
+            public int AppointmentDuration { get; set; } 
+        }
+        public IEnumerable<AppointmentLook> GetAppointmentLook(DateTime startTime, DateTime endTime)
+        {
+            return _patientRepository.GetAllPatients()
+                .Select(patient => new AppointmentLook
+                {
+                    Patient = patient,
+                    AppointmentDuration = patient.Appointments.Count(duration => duration.AppointmentDate >= startTime && duration.AppointmentDate <= endTime)
+                });
+        }
+        public class NumberOfAppointment
+        {
+            public Patient Patient { get; set; }
+            public int AppointmentIn { get; set; }
+        }
+
+        public IEnumerable<NumberOfAppointment> GetAppointmentNumber()
+        {
+
+            return _patientRepository.GetAllPatients().Select(patient => new NumberOfAppointment
+                                      {
+                                          Patient = patient,
+                                         AppointmentIn = patient.Appointments.Count
+                                      });
+        }
         private void CheckPatient(Patient patient)
         {
             if (patient == null)
@@ -66,7 +98,7 @@ namespace G6RXAI_ADT_2023241.Logic
 
             if (string.IsNullOrWhiteSpace(patient.Name))
             {
-                throw new ArgumentException("Doctor's name cannot be empty.", nameof(patient));
+                throw new ArgumentException("Patient's name cannot be empty.", nameof(patient));
             }
 
 
