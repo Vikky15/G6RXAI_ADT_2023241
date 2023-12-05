@@ -21,7 +21,7 @@ namespace G6RXAI_ADT_2023241.Models
         public int PatientId { get; set; }
 
         public virtual Patient Patient { get; set; }
-
+         
         [ForeignKey("Doctor")]
         public int DoctorId { get; set; }
 

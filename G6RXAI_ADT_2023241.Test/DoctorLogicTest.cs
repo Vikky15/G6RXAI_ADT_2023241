@@ -78,7 +78,7 @@ namespace G6RXAI_ADT_2023241.Test
 
             // Act & Assert
             var nonexist = Assert.Throws<ArgumentException>(() => doctorLogic.DeleteDoctor(invalidDoctorId));
-            Assert.That(nonexist.Message, Is.EqualTo("Invalid Doctor ID."));
+            Assert.That(nonexist.Message, Is.EqualTo("This Doctor ID is not valid."));
         }
         [Test]
         public void GetDoctorwithValidId()
@@ -101,14 +101,15 @@ namespace G6RXAI_ADT_2023241.Test
         public void UpdateDoctorOnRepository() 
         {
             // Arrange
-            var DoctorToUpdate = new Doctor { DoctorId = 1, Name = "UpdatedDoctor" };
+            var DoctorToUpdate = new Doctor { DoctorId = 402, Name = "UpdatedDoctor" };
             _mockRepository.Setup(repo => repo.UpdateDoctor(It.IsAny<Doctor>()));
 
             // Act
             doctorLogic.UpdateDoctor(DoctorToUpdate);
 
             // Assert
-            _mockRepository.Verify(repo => repo.UpdateDoctor(It.Is<Doctor>(cb => cb.DoctorId == 1 && cb.Name == "UpdatedDoctor ")), Times.Once);
+            _mockRepository.Verify(repo => repo.UpdateDoctor(It.Is<Doctor>(cb => cb.DoctorId == 402 && cb.Name == "UpdatedDoctor")), Times.Once);
+            
         }
         [Test]
         public void Update_InvalidIdDoctor()
@@ -118,7 +119,7 @@ namespace G6RXAI_ADT_2023241.Test
 
             // Act & Assert
             var ex = Assert.Throws<ArgumentException>(() => doctorLogic.UpdateDoctor(invalidDoctor));
-            Assert.That(ex.Message, Is.EqualTo("Invalid Doctor ID."));
+            Assert.That(ex.Message, Is.EqualTo("This Doctor ID is not valid."));
         }
 
     }

@@ -12,12 +12,12 @@ namespace G6RXAI_ADT_2023241.Test
     {
 
 
-        private Mock<PatientRepository> _mockRepository;
+        private Mock<IPatientRepository> _mockRepository;
         private PatientLogic _patientLogic;
         [SetUp]
         public void Setup()
         {
-            _mockRepository = new Mock<PatientRepository>();
+            _mockRepository = new Mock<IPatientRepository>();
             _patientLogic = new PatientLogic(_mockRepository.Object);
         }
 
