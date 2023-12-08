@@ -1,4 +1,5 @@
-﻿using System;
+﻿using G6RXAI_ADT_2023241.Models;
+using System;
 
 namespace G6RXAI_ADT_2023241.Client
 {     static class Extension
@@ -17,8 +18,19 @@ namespace G6RXAI_ADT_2023241.Client
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            
+
+            Thread.Sleep(5000);
+            RestService service = new RestService("http://localhost:61939/api/DoctorController");
+
+            Doctor doctor = new Doctor() { Name = "Abu James", DoctorId = 470,Specialization ="Nursing" };
+
+            service.Post(doctor, "api/Doctor");
+
+            Doctor server_Doctor = service.Get<Doctor>(470, "api/Doctor"); 
+
+            Console.WriteLine(server_Doctor);
+            Console.WriteLine("this");
+
         }
     }
 }
