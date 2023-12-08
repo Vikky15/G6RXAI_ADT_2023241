@@ -25,11 +25,11 @@ namespace G6RXAI_ADT_2023241.Logic
             CheckAppointmentParameter(appointment);
         }
 
-        public Appointment GetPatientById(int id)
+        public Appointment GetAppointmentById(int id)
         {
             if (id <= 409)
             {
-                throw new ArgumentException("This is a wrong patient ID.");
+                throw new ArgumentException("This is a wrong appointment ID.");
             }
             return _appointmentRepository.GetAppointmentId(id);
         }
@@ -42,18 +42,18 @@ namespace G6RXAI_ADT_2023241.Logic
         public void UpdateAppointment(Appointment appointment)
         {
             CheckAppointmentParameter(appointment);
-            if (appointment.AppointmentId <= 1000)
+            if (appointment.AppointmentId <= 600)
             {
-                throw new ArgumentException("This is a wrong patient ID.");
+                throw new ArgumentException("This is a wrong appointment ID.");
             }
             _appointmentRepository.UpdateAppointment(appointment);
         }
 
-        public void DeleteAppointmentt(int id)
+        public void DeleteAppointment(int id)
         {
-            if (id <= 409)
+            if (id <= 600)
             {
-                throw new ArgumentException("This is a wrong patient  ID.");
+                throw new ArgumentException("This is a wrong appointment  ID.");
             }
             _appointmentRepository.DeleteAppointment(id);
         }

@@ -19,7 +19,7 @@ namespace G6RXAI_ADT_2023241.Logic
             _patientRepository = patientRepository;
         }
 
-        public void AddCarModel(Patient patient)
+        public void AddPatient(Patient patient)
         {
 
             _patientRepository.CreatePatient(patient);
