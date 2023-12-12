@@ -14,14 +14,14 @@ namespace G6RXAI_ADT_2023241.Repository
         {
            Content  = content;
         }
-        public void CreateDoctor(Doctor doctor)
+        public void CreateDoctor(Doctor doctor)// method to add a new doctor
         {
            Content.Doctors.Add( doctor );
             Content.SaveChanges();
             
         }
 
-        public void DeleteDoctor(int id)
+        public void DeleteDoctor(int id)//deleting the docotor using the id
         {
 
             var doctors = Content.Doctors.Find(id);
